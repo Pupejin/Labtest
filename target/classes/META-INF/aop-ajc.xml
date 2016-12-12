@@ -1,0 +1,12 @@
+<aspectj>
+<aspects>
+<aspect name="co.sping.domain.web.ApplicationConversionServiceFactoryBean_Roo_ConversionService"/>
+<aspect name="co.sping.domain.Inform_Roo_ToString"/>
+<aspect name="co.sping.domain.web.InformController_Roo_Controller"/>
+<aspect name="co.sping.domain.Inform_Roo_Jpa_Entity"/>
+<aspect name="co.sping.domain.Inform_Roo_Jpa_ActiveRecord"/>
+<aspect name="co.sping.domain.Inform_Roo_Configurable"/>
+<aspect name="co.sping.domain.Inform_Roo_JavaBean"/>
+</aspects>
+</aspectj>
+
