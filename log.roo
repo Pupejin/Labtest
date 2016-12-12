@@ -25,3 +25,9 @@ field string --fieldName name
 web mvc all --package co.sping.domain.web
 quit
 // Spring Roo 1.3.2.RELEASE [rev 8387857] log closed at 2016-12-12 22:29:46
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 22:44:01
+entity jpa --class co.sping.domain.ITT
+field date --fieldName dayly --type java.util.Date
+web mvc all --package co.sping.domain.web
+quit
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log closed at 2016-12-12 22:45:07
