@@ -11,5 +11,9 @@
             <menu:item id="i_itt_new" messageCode="global_menu_new" url="/itts?form" z="OGhJNjxmTBlmfKgpfknxIZIVPCA="/>
             <menu:item id="i_itt_list" messageCode="global_menu_list" url="/itts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="BSahsni4zR7jrO4BL+lF0fjXm7c="/>
         </menu:category>
+        <menu:category id="c_newnew" z="VX6cd2CGHRWhW+7HcNxFSHQ+z3A=">
+            <menu:item id="i_newnew_new" messageCode="global_menu_new" url="/newnews?form" z="dwR5s8pQA721QNQHFTfj07mnru8="/>
+            <menu:item id="i_newnew_list" messageCode="global_menu_list" url="/newnews?page=1&amp;size=${empty param.size ? 10 : param.size}" z="5VHeQhE0e0/v7n+xuBBO0wQ+3gk="/>
+        </menu:category>
     </menu:menu>
 </div>
