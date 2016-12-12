@@ -3,6 +3,7 @@
 
 package co.sping.domain.web;
 
+import co.sping.domain.ITT;
 import co.sping.domain.Inform;
 import co.sping.domain.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -12,6 +13,30 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
+    
+    public Converter<ITT, String> ApplicationConversionServiceFactoryBean.getITTToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<co.sping.domain.ITT, java.lang.String>() {
+            public String convert(ITT iTT) {
+                return new StringBuilder().append(iTT.getDayly()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, ITT> ApplicationConversionServiceFactoryBean.getIdToITTConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, co.sping.domain.ITT>() {
+            public co.sping.domain.ITT convert(java.lang.Long id) {
+                return ITT.findITT(id);
+            }
+        };
+    }
+    
+    public Converter<String, ITT> ApplicationConversionServiceFactoryBean.getStringToITTConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, co.sping.domain.ITT>() {
+            public co.sping.domain.ITT convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), ITT.class);
+            }
+        };
+    }
     
     public Converter<Inform, String> ApplicationConversionServiceFactoryBean.getInformToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<co.sping.domain.Inform, java.lang.String>() {
@@ -38,6 +63,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(getITTToStringConverter());
+        registry.addConverter(getIdToITTConverter());
+        registry.addConverter(getStringToITTConverter());
         registry.addConverter(getInformToStringConverter());
         registry.addConverter(getIdToInformConverter());
         registry.addConverter(getStringToInformConverter());
