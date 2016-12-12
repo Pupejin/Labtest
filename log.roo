@@ -8,3 +8,20 @@ web mvc all --package co.spring.web
 web mvc all --package co.sping.web
 quit
 // Spring Roo 1.3.2.RELEASE [rev 8387857] log closed at 2016-12-12 21:19:49
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 21:48:37
+entity jpa --class co.sping.domain.Customer
+field string --fieldName name 
+entity jpa --class co.sping.domain.Inform
+field reference --fieldName name --type co.sping.domain.Customer
+// [failed] field date --fieldName day --type java.util.Date
+field date --fieldName dayly --type java.util.Date
+field number --fieldName price --type java.lang.Float
+web mvc all --package co.sping.domain.web
+exit
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log closed at 2016-12-12 21:59:49
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-12-12 22:28:50
+entity jpa --class co.sping.domain.Inform
+field string --fieldName name
+web mvc all --package co.sping.domain.web
+quit
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log closed at 2016-12-12 22:29:46
