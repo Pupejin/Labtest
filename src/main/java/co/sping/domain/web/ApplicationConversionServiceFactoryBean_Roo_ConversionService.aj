@@ -5,6 +5,7 @@ package co.sping.domain.web;
 
 import co.sping.domain.ITT;
 import co.sping.domain.Inform;
+import co.sping.domain.Newnew;
 import co.sping.domain.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -62,6 +63,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Newnew, String> ApplicationConversionServiceFactoryBean.getNewnewToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<co.sping.domain.Newnew, java.lang.String>() {
+            public String convert(Newnew newnew) {
+                return new StringBuilder().append(newnew.getNum()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Newnew> ApplicationConversionServiceFactoryBean.getIdToNewnewConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, co.sping.domain.Newnew>() {
+            public co.sping.domain.Newnew convert(java.lang.Long id) {
+                return Newnew.findNewnew(id);
+            }
+        };
+    }
+    
+    public Converter<String, Newnew> ApplicationConversionServiceFactoryBean.getStringToNewnewConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, co.sping.domain.Newnew>() {
+            public co.sping.domain.Newnew convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Newnew.class);
+            }
+        };
+    }
+    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
         registry.addConverter(getITTToStringConverter());
         registry.addConverter(getIdToITTConverter());
@@ -69,6 +94,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getInformToStringConverter());
         registry.addConverter(getIdToInformConverter());
         registry.addConverter(getStringToInformConverter());
+        registry.addConverter(getNewnewToStringConverter());
+        registry.addConverter(getIdToNewnewConverter());
+        registry.addConverter(getStringToNewnewConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

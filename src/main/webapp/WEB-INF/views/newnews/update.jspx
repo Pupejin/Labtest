@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_co_sping_domain_Newnew" modelAttribute="newnew" path="/newnews" versionField="Version" z="oUDcsHd+0T1XDO6C9hXA4duNHNE=">
+        <field:input field="num" id="c_co_sping_domain_Newnew_num" z="3wHiRDlJjsDAGVu2iHrmT9K/uTc="/>
+    </form:update>
+</div>
